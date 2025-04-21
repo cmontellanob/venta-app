@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 
@@ -13,3 +14,5 @@ Route::get('/acercade', function () {
 
 
 Route::resource('/productos', ProductoController::class);
+
+Route::resource('/clientes', ClienteController::class);

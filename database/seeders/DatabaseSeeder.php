@@ -17,7 +17,14 @@ class DatabaseSeeder extends Seeder
             ProductoSeeder::class,
 
         ]);
-        // User::factory(10)->create();
+
+        $this->call([
+            TipoDocumentoSeeder::class,
+        ]);
+
+        $this->call([
+            ClienteSeeder::class,
+        ]);
 
         User::factory()->create([
             'name' => 'Test User',

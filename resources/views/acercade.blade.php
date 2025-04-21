@@ -8,7 +8,8 @@
 <body>
 
  Realizado por <br>
- Carlos Montellano
+ Jharif Aparicio Casillas con el apoyo de <br>
+ Carlos Montellano Barriga <br>
     
 </body>
 </html>
