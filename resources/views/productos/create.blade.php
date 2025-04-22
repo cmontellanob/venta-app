@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Crear Producto')
+
+@section('content')
     <form action="{{ route("productos.store") }}" method="post">
         @csrf
         <label for="nombre">Nombre</label>
@@ -23,6 +20,4 @@
         <button type="submit">Crear Producto</button>
 
     </form>
-    
-</body>
-</html>
+    @endsection

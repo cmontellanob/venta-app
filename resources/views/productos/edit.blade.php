@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="{{ route("productos.update",$producto->id) }}" method="post">
+@extends('layouts.app')
+
+@section('title', 'Editar Producto')
+
+@section('content')
+
+<form action="{{ route("productos.update",$producto->id) }}" method="post">
         @csrf
         @method('PUT')
         <label for="nombre">Nombre</label>
@@ -25,5 +23,5 @@
 
     </form>
     
-</body>
-</html>
+
+@endsection
