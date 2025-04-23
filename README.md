@@ -19,3 +19,7 @@ php artisan make:model Producto -mcrfs
 # Borrala base de datos hace correr todas las migraciones y los seeders declarados en el database seeder 
 
 php artisan migrate:fresh --seed
+
+# Instalar tailswind
+
+ npm install tailwindcss @tailwindcss/vite

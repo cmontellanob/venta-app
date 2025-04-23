@@ -89,6 +89,10 @@
                 @endforeach
             </tbody>
         </table>
+        {{ $productos->links() }}
+    </div>
+    <div class="flex justify-center mt-4">
+        
         <a class="bg-blue-500 mt-5 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="{{ route('productos.create') }}">Crear Producto</a>
     </div>
     

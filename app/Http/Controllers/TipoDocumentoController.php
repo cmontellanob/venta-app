@@ -12,7 +12,10 @@ class TipoDocumentoController extends Controller
      */
     public function index()
     {
-        //
+        $tiposDocumento = TipoDocumento::paginate(12);
+        return view('tiposdocumento.index', [
+            'tiposDocumento' => $tiposDocumento,
+        ]);
     }
 
     /**
@@ -20,7 +23,7 @@ class TipoDocumentoController extends Controller
      */
     public function create()
     {
-        //
+        return view('tiposdocumento.create');
     }
 
     /**
@@ -28,7 +31,15 @@ class TipoDocumentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id' => 'required|integer|unique:tipo_documentos',
+            'nombre' => 'required|string|max:255|unique:tipo_documentos',
+        ]);
+
+        TipoDocumento::create($request->all());
+
+        return redirect()->route('tiposdocumento.index')
+            ->with('success', 'Tipo de documento creado correctamente.');
     }
 
     /**
@@ -44,7 +55,9 @@ class TipoDocumentoController extends Controller
      */
     public function edit(TipoDocumento $tipoDocumento)
     {
-        //
+        return view('tiposdocumento.edit', [
+            'tipoDocumento' => $tipoDocumento,
+        ]);
     }
 
     /**
@@ -52,7 +65,15 @@ class TipoDocumentoController extends Controller
      */
     public function update(Request $request, TipoDocumento $tipoDocumento)
     {
-        //
+        $request->validate([
+            'id' => 'required|integer|unique:tipo_documentos,id,' . $tipoDocumento->id,
+            'nombre' => 'required|string|max:255|unique:tipo_documentos,nombre,' . $tipoDocumento->id,
+        ]);
+
+        $tipoDocumento->update($request->all());
+
+        return redirect()->route('tiposdocumento.index')
+            ->with('success', 'Tipo de documento actualizado correctamente.');
     }
 
     /**
@@ -60,6 +81,9 @@ class TipoDocumentoController extends Controller
      */
     public function destroy(TipoDocumento $tipoDocumento)
     {
-        //
+        $tipoDocumento->delete();
+
+        return redirect()->route('tiposdocumento.index')
+            ->with('success', 'Tipo de documento eliminado correctamente.');
     }
 }
